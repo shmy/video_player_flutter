@@ -497,7 +497,10 @@ class _VideoPlayerState extends State<VideoPlayer> {
   @override
   void deactivate() {
     super.deactivate();
-//     widget.controller.removeListener(_listener);
+    print('-------deactivate---------');
+    if (widget.controller != null && !widget.controller.value.initialized) {
+      widget.controller.removeListener(_listener);
+    }
   }
 
   @override
